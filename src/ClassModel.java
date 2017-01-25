@@ -52,8 +52,6 @@ public class ClassModel {
 		return behavior;
 	}
 
-	// TODO add hash and equal
-
 	@Override
 	public String toString() {
 		return "ClassModel [className=" + className + ", programmingLanguage="

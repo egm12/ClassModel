@@ -42,38 +42,6 @@ public class Attributes {
 	}
 
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((accessModifier == null) ? 0 : accessModifier.hashCode());
-		result = prime * result + (isFinal ? 1231 : 1237);
-		result = prime * result + (isStatic ? 1231 : 1237);
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Attributes other = (Attributes) obj;
-		if (accessModifier == null) {
-			if (other.accessModifier != null)
-				return false;
-		} else if (!accessModifier.equals(other.accessModifier))
-			return false;
-		if (isFinal != other.isFinal)
-			return false;
-		if (isStatic != other.isStatic)
-			return false;
-		return true;
-	}
-
-	@Override
 	public String toString() {
 		return "Attributes [accessModifier=" + accessModifier + ", isStatic="
 				+ isStatic + ", isFinal=" + isFinal + "]";

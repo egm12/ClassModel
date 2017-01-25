@@ -34,39 +34,6 @@ public class Variable {
 	}
 
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((variableName == null) ? 0 : variableName.hashCode());
-		result = prime * result
-				+ ((variableType == null) ? 0 : variableType.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Variable other = (Variable) obj;
-		if (variableName == null) {
-			if (other.variableName != null)
-				return false;
-		} else if (!variableName.equals(other.variableName))
-			return false;
-		if (variableType == null) {
-			if (other.variableType != null)
-				return false;
-		} else if (!variableType.equals(other.variableType))
-			return false;
-		return true;
-	}
-
-	@Override
 	public String toString() {
 		return "Variable [variableType=" + variableType + ", variableName="
 				+ variableName + "]";

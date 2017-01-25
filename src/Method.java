@@ -19,8 +19,6 @@ public class Method {
 		this.body = builder.body;
 	}
 
-	// TODO add hash and equal
-
 	/**
 	 * @return the signature
 	 */
