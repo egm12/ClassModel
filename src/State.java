@@ -7,7 +7,7 @@ import java.util.*;
  *         of fields with all their corresponding attributes.
  */
 public class State {
-	Map<String, Field> fields;
+	private Map<String, Field> fields;
 
 	/**
 	 * Constructor for the class State
@@ -24,16 +24,40 @@ public class State {
 	public Collection<Field> getFields() {
 		return fields.values();
 	}
-	
+
 	public String getFieldType(String fieldName) {
 		Field wantedField = fields.get(fieldName);
 		if (wantedField == null) {
-			throw new IllegalArgumentException("The class contains no field with the specified name.");
+			throw new IllegalArgumentException(
+					"The class contains no field with the specified name.");
 		}
 		return wantedField.getVariableType();
 	}
 
-	// TODO add hash and equal
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((fields == null) ? 0 : fields.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		State other = (State) obj;
+		if (fields == null) {
+			if (other.fields != null)
+				return false;
+		} else if (!fields.equals(other.fields))
+			return false;
+		return true;
+	}
 
 	@Override
 	public String toString() {
@@ -46,7 +70,7 @@ public class State {
 	 *         Represents a builder for the class State
 	 */
 	public class Builder {
-		Map<String, Field> fields;
+		private Map<String, Field> fields;
 
 		/**
 		 * Constructor for the Builder of State
@@ -67,7 +91,7 @@ public class State {
 		}
 
 		/**
-		 * add fields to the state of the class
+		 * add multiple fields to the state of the class
 		 * 
 		 * @param paramFields
 		 * @return builder for chained calls
